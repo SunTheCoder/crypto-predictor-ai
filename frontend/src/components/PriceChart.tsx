@@ -78,7 +78,7 @@ export default function PriceChart({ historicalPrices, predictedRange, timeframe
         text: 'Price History & Prediction',
         font: {
           size: 16,
-          weight: 'bold',
+          weight: 'bold' as const,
         },
         padding: 20,
       },
