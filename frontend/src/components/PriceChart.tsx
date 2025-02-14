@@ -68,6 +68,7 @@ export default function PriceChart({ historicalPrices, predictedRange, timeframe
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top' as const,
@@ -75,12 +76,30 @@ export default function PriceChart({ historicalPrices, predictedRange, timeframe
       title: {
         display: true,
         text: 'Price History & Prediction',
+        font: {
+          size: 16,
+          weight: 'bold',
+        },
+        padding: 20,
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: false,
+        grid: {
+          color: 'rgba(0, 0, 0, 0.05)',
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
       },
     },
   };
 
   return (
-    <div className="w-full h-[400px] bg-white p-4 rounded-lg shadow-sm">
+    <div className="w-full h-[400px]">
       <Line options={options} data={data} />
     </div>
   );

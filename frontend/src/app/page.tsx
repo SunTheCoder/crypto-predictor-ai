@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { API_BASE_URL } from '../config/api';
 import PriceChart from '../components/PriceChart';
+import TimeDisplay from '../components/TimeDisplay';
 
 function LoadingSkeleton() {
   return (
@@ -90,92 +91,105 @@ export default function Home() {
           Crypto Price Predictor
         </h1>
 
-        <form 
-          onSubmit={handleSubmit} 
-          className="space-y-6 mb-12"
-          aria-label="Prediction input form"
-        >
-          <div className="space-y-4">
-            <div>
-              <label 
-                htmlFor="crypto" 
-                className="block text-sm font-medium text-zinc-600"
-              >
-                Select Cryptocurrency
-              </label>
-              <select
-                id="crypto"
-                value={crypto}
-                onChange={(e) => setCrypto(e.target.value)}
-                className="w-full p-2 bg-white border border-zinc-200 text-zinc-800 text-base outline-none focus:border-zinc-400 transition-colors"
-              >
-                <option value="bitcoin">Bitcoin (BTC)</option>
-                <option value="ethereum">Ethereum (ETH)</option>
-                <option value="binancecoin">Binance Coin (BNB)</option>
-                <option value="cardano">Cardano (ADA)</option>
-                <option value="solana">Solana (SOL)</option>
-              </select>
-            </div>
-            
-            <div>
-              <label 
-                htmlFor="timeframe" 
-                className="block text-sm font-medium text-zinc-600"
-              >
-                Prediction Timeframe
-              </label>
-              <select
-                id="timeframe"
-                value={timeframe}
-                onChange={(e) => setTimeframe(e.target.value)}
-                className="w-full p-2 bg-white border border-zinc-200 text-zinc-800 text-base outline-none focus:border-zinc-400 transition-colors"
-              >
-                <option value="24h">24 Hours</option>
-                <option value="7d">7 Days</option>
-                <option value="30d">30 Days</option>
-                <option value="90d">90 Days</option>
-              </select>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="stat-card">
+            <div className="stat-label">Selected Asset</div>
+            <div className="stat-value">{crypto.toUpperCase()}</div>
           </div>
+          <div className="stat-card">
+            <div className="stat-label">Timeframe</div>
+            <div className="stat-value">{timeframe}</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-label">Last Updated</div>
+            <TimeDisplay />
+          </div>
+        </div>
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-1/2 py-3 px-4 bg-zinc-800 text-white text-sm font-medium hover:bg-zinc-700 disabled:opacity-50 transition-colors mx-auto block"
-            aria-busy={isLoading}
-          >
-            {isLoading ? 'Getting prediction...' : 'Get Price Prediction'}
-          </button>
-        </form>
-
-        <div className="max-w-4xl mx-auto px-6">
-          {isLoading ? (
-            <LoadingSkeleton />
-          ) : (
-            <>
-              {priceData && (
-                <div className="mb-8">
-                  <PriceChart 
-                    historicalPrices={priceData.historicalPrices}
-                    predictedRange={priceData.predictedRange}
-                    timeframe={timeframe}
-                  />
-                </div>
-              )}
-              {prediction && (
-                <div 
-                  className="bg-white border border-zinc-200 shadow-sm"
-                  role="region"
-                  aria-label="Crypto prediction"
+        <div className="finance-card p-6 mb-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="crypto" className="block text-sm font-medium mb-2">
+                  Select Cryptocurrency
+                </label>
+                <select
+                  id="crypto"
+                  value={crypto}
+                  onChange={(e) => setCrypto(e.target.value)}
+                  className="finance-input"
                 >
-                  <pre className="whitespace-pre-wrap font-serif text-base leading-relaxed text-zinc-700 p-8">
+                  <option value="bitcoin">Bitcoin (BTC)</option>
+                  <option value="ethereum">Ethereum (ETH)</option>
+                  <option value="binancecoin">Binance Coin (BNB)</option>
+                  <option value="cardano">Cardano (ADA)</option>
+                  <option value="solana">Solana (SOL)</option>
+                </select>
+              </div>
+              
+              <div>
+                <label htmlFor="timeframe" className="block text-sm font-medium mb-2">
+                  Prediction Timeframe
+                </label>
+                <select
+                  id="timeframe"
+                  value={timeframe}
+                  onChange={(e) => setTimeframe(e.target.value)}
+                  className="finance-input"
+                >
+                  <option value="24h">24 Hours</option>
+                  <option value="7d">7 Days</option>
+                  <option value="30d">30 Days</option>
+                  <option value="90d">90 Days</option>
+                </select>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="finance-button w-full md:w-auto md:ml-auto md:block"
+            >
+              {isLoading ? (
+                <>
+                  <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  Processing...
+                </>
+              ) : (
+                'Get Price Prediction'
+              )}
+            </button>
+          </form>
+        </div>
+
+        {isLoading ? (
+          <LoadingSkeleton />
+        ) : (
+          <>
+            {priceData && (
+              <div className="finance-card p-6 mb-8">
+                <PriceChart 
+                  historicalPrices={priceData.historicalPrices}
+                  predictedRange={priceData.predictedRange}
+                  timeframe={timeframe}
+                />
+              </div>
+            )}
+            {prediction && (
+              <div className="finance-card p-6">
+                <h2 className="text-lg font-semibold mb-4">Analysis & Prediction</h2>
+                <div className="prose prose-blue max-w-none">
+                  <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-[var(--foreground)]">
                     {prediction}
                   </pre>
                 </div>
-              )}
-            </>
-          )}
-        </div>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </main>
   );
