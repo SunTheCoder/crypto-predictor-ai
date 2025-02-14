@@ -40,7 +40,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [priceData, setPriceData] = useState<{
     historicalPrices: [number, number][];
-    predictedRange?: { min: number; max: number };
+    predictedRange?: { min: number; max: number; date: number };
   } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
