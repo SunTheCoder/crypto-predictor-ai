@@ -6,7 +6,8 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartDataset
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
@@ -19,6 +20,15 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+interface Dataset extends ChartDataset<'line', number[]> {
+  label: string;
+  data: number[];
+  borderColor: string;
+  backgroundColor: string;
+  pointStyle?: 'circle';
+  pointRadius?: number;
+}
 
 interface PriceChartProps {
   historicalPrices: [number, number][];
@@ -44,7 +54,7 @@ export default function PriceChart({ historicalPrices, predictedRange, timeframe
         data: prices,
         borderColor: 'rgb(75, 85, 99)',
         backgroundColor: 'rgba(75, 85, 99, 0.5)',
-      },
+      } as Dataset,
       predictedRange ? {
         label: `${timeframe} Prediction Range`,
         data: [...Array(dates.length).fill(null), predictedRange.min, predictedRange.max],
@@ -52,8 +62,8 @@ export default function PriceChart({ historicalPrices, predictedRange, timeframe
         backgroundColor: 'rgba(59, 130, 246, 0.5)',
         pointStyle: 'circle',
         pointRadius: 5,
-      } : null,
-    ].filter(Boolean) as any[],
+      } as Dataset : null,
+    ].filter(Boolean) as Dataset[],
   };
 
   const options = {
