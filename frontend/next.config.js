@@ -2,12 +2,14 @@
 const nextConfig = {
   output: 'standalone',
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'https://crypto-predictor-ai.onrender.com/:path*'
-      }
-    ]
+    return {
+      fallback: [
+        {
+          source: '/api/:path*',
+          destination: 'https://crypto-predictor-ai.onrender.com/:path*'
+        }
+      ]
+    }
   },
   async headers() {
     return [
