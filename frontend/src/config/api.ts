@@ -1,1 +1,1 @@
-export const API_BASE_URL = process.env.BACKEND_URL || 'https://crypto-predictor-ai.onrender.com'; 
+export const API_BASE_URL = '/api'; 
