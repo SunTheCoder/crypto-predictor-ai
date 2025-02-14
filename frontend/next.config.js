@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://crypto-predictor-ai.onrender.com/:path*'
+      }
+    ]
+  },
   async headers() {
     return [
       {
