@@ -1,0 +1,107 @@
+[
+  {
+    "title": "The Starry Night",
+    "artist": "Vincent van Gogh",
+    "description": "A swirling night sky over a quiet village with a prominent church spire",
+    "mood": ["dreamy", "turbulent", "peaceful", "mystical"],
+    "image_url": "https://example.com/starry-night.jpg"
+  },
+  {
+    "title": "The Scream",
+    "artist": "Edvard Munch", 
+    "description": "An agonized figure against a landscape with a tumultuous orange sky",
+    "mood": ["anxiety", "fear", "distress", "intense"],
+    "image_url": "https://example.com/the-scream.jpg"
+  },
+  {
+    "title": "Water Lilies",
+    "artist": "Claude Monet",
+    "description": "Serene pond surface with floating water lilies in soft, peaceful colors",
+    "mood": ["calm", "peaceful", "serene", "contemplative"],
+    "image_url": "https://example.com/water-lilies.jpg"
+  },
+  {
+    "title": "The Persistence of Memory",
+    "artist": "Salvador Dalí",
+    "description": "Surreal landscape with melting clocks draped over objects",
+    "mood": ["surreal", "dreamlike", "mysterious", "thought-provoking"],
+    "image_url": "https://example.com/persistence-of-memory.jpg"
+  },
+  {
+    "title": "Sunflowers",
+    "artist": "Vincent van Gogh",
+    "description": "Vibrant yellow sunflowers in a vase, radiating warmth and joy",
+    "mood": ["happy", "cheerful", "bright", "uplifting"],
+    "image_url": "https://example.com/sunflowers.jpg"
+  },
+  {
+    "title": "A Sunday Afternoon on the Island of La Grande Jatte",
+    "artist": "Georges Seurat",
+    "description": "Lively scene of people enjoying a sunny day in the park",
+    "mood": ["joyful", "lively", "pleasant", "happy"],
+    "image_url": "https://example.com/sunday-afternoon.jpg"
+  },
+  {
+    "title": "Guernica",
+    "artist": "Pablo Picasso",
+    "description": "Powerful anti-war painting depicting the bombing of Guernica",
+    "mood": ["angry", "violent", "outraged", "chaotic"],
+    "image_url": "https://example.com/guernica.jpg"
+  },
+  {
+    "title": "Saturn Devouring His Son",
+    "artist": "Francisco Goya",
+    "description": "Dark and disturbing depiction of the god Saturn eating his child",
+    "mood": ["angry", "violent", "horrific", "intense"],
+    "image_url": "https://example.com/saturn-devouring.jpg"
+  },
+  {
+    "title": "The Night Café",
+    "artist": "Vincent van Gogh",
+    "description": "Harsh interior of a café with clashing colors expressing tension",
+    "mood": ["angry", "tense", "uncomfortable", "agitated"],
+    "image_url": "https://example.com/night-cafe.jpg"
+  },
+  {
+    "title": "Girl with a Pearl Earring",
+    "artist": "Johannes Vermeer",
+    "description": "Intimate portrait of a young woman glancing over her shoulder with an enigmatic expression",
+    "mood": ["mysterious", "serene", "intimate", "graceful"],
+    "image_url": "https://example.com/girl-pearl-earring.jpg"
+  },
+  {
+    "title": "The Kiss",
+    "artist": "Gustav Klimt",
+    "description": "Ornate golden painting of two lovers embracing",
+    "mood": ["romantic", "passionate", "intimate", "luxurious"],
+    "image_url": "https://example.com/the-kiss.jpg"
+  },
+  {
+    "title": "The Garden of Earthly Delights",
+    "artist": "Hieronymus Bosch",
+    "description": "Complex triptych depicting paradise, earthly pleasures, and hell",
+    "mood": ["chaotic", "fantastical", "bizarre", "overwhelming"],
+    "image_url": "https://example.com/garden-earthly-delights.jpg"
+  },
+  {
+    "title": "The Birth of Venus",
+    "artist": "Sandro Botticelli",
+    "description": "Venus emerging from the sea on a giant shell",
+    "mood": ["graceful", "divine", "beautiful", "serene"],
+    "image_url": "https://example.com/birth-of-venus.jpg"
+  },
+  {
+    "title": "Impression, Sunrise",
+    "artist": "Claude Monet",
+    "description": "Hazy harbor scene with orange sun reflecting on water",
+    "mood": ["peaceful", "atmospheric", "tranquil", "misty"],
+    "image_url": "https://example.com/impression-sunrise.jpg"
+  },
+  {
+    "title": "The Great Wave off Kanagawa",
+    "artist": "Katsushika Hokusai",
+    "description": "Dramatic wave threatening boats with Mount Fuji in background",
+    "mood": ["powerful", "dramatic", "awe-inspiring", "dynamic"],
+    "image_url": "https://example.com/great-wave.jpg"
+  }
+]
