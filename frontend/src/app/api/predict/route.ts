@@ -1,17 +1,17 @@
 import { NextResponse } from 'next/server';
 
 // Make sure to use NEXT_PUBLIC_ prefix if you need to access env vars on the client side
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000';
+const BACKEND_URL = process.env.BACKEND_URL || 'https://crypto-predictor-ai.onrender.com';
 console.log('Using backend URL:', BACKEND_URL); // Add this for debugging
 
 export async function POST(request: Request) {
   try {
-    const { emotion } = await request.json();
+    const body = await request.json();
   
-    const response = await fetch(`${BACKEND_URL}/recommend`, {
+    const response = await fetch(`${BACKEND_URL}/predict`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ emotion }),
+      body: JSON.stringify(body),
     });
 
     if (!response.ok) {
